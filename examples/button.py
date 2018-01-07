@@ -51,6 +51,7 @@ else:
 # guarantee the timing of calls to read the sensor).
 # If this happens try again!
 while 1:
+	
 	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 	SwitchStatus = GPIO.input(24)
 	h0, t0= Adafruit_DHT.read_retry(sensor, pin)
@@ -66,7 +67,7 @@ while 1:
     		sys.exit(1)
 
 
-	if( SwitchStatus == 1):
-		print('button released')
-	else:
+	if( SwitchStatus == 0):
 		print('button pressed')
+	else:
+		print('button released')
